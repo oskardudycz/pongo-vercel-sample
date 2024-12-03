@@ -10,8 +10,12 @@ export default async function handler(_req: VercelRequest, res: VercelResponse) 
   const users = pongo.db().collection("cloudflare");
 
   const now = new Date().toISOString();
+  const existing = await users.findOne();
 
-  const {insertedId } = await users.insertOne({_id: now, name: `test-${now}`});
+  if(existing)
+    return res.status(200).json({ existing });
+
+  const { insertedId } = await users.insertOne({_id: now, name: `test-${now}`});
 
   // Test query
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
