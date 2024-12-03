@@ -5,7 +5,7 @@ export const runtime = 'nodejs';
 
 export default async function handler(_req: VercelRequest, res: VercelResponse) {
 //   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const pongo = pongoClient(process.env.DATABASE_URL, { connectionOptions: { pooled:false } });
+  const pongo = pongoClient(process.env.DATABASE_URL);
 
   const users = pongo.db().collection("cloudflare");
 
