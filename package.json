@@ -1,6 +1,5 @@
 {
   "name": "pongo-vercel-sample",
-  "type": "module",
   "version": "0.1.0",
   "private": true,
   "scripts": {
